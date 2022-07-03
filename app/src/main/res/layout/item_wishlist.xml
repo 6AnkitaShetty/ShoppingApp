@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="model"
+            type="com.example.shoppingapp.features.home.data.local.model.WishListItem" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/mainConstraint"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/dp_5"
+        android:layout_margin="@dimen/dp_8"
+        android:background="@drawable/edittext_background"
+        app:layout_constraintWidth_percent="1">
+
+        <ImageView
+            android:id="@+id/deleteImage"
+            android:layout_width="@dimen/dp_35"
+            android:layout_height="@dimen/dp_35"
+            android:contentDescription="@string/cart"
+            android:padding="@dimen/dp_5"
+            android:src="@drawable/ic_close"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/imageProduct"
+            android:layout_width="@dimen/dp_100"
+            android:layout_height="@dimen/dp_100"
+            android:layout_marginTop="@dimen/dp_10"
+            android:contentDescription="@{model.productImage}"
+            android:padding="@dimen/dp_5"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:loadImageWithUrl="@{model.productImage}" />
+
+        <TextView
+            android:id="@+id/productNameTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_5"
+            android:layout_marginTop="@dimen/dp_10"
+            android:padding="@dimen/dp_5"
+            android:text="@{model.productName}"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@id/imageProduct" />
+
+        <TextView
+            android:id="@+id/priceTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_10"
+            android:padding="@dimen/dp_5"
+            android:text="@{@string/price_format(model.price)}"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/productNameTextView" />
+
+        <ImageView
+            android:id="@+id/addToCartImage"
+            android:layout_width="@dimen/dp_35"
+            android:layout_height="@dimen/dp_35"
+            android:contentDescription="@string/cart"
+            android:padding="@dimen/dp_5"
+            android:src="@drawable/ic_cart"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/priceTextView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/productNameTextView" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

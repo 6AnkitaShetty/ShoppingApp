@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+
+        <variable
+            name="model"
+            type="com.example.shoppingapp.features.home.data.remote.model.Product" />
+
+        <variable
+            name="viewModel"
+            type="com.example.shoppingapp.features.home.presentation.detail.ProductDetailViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/wishlistImage"
+            android:layout_width="@dimen/dp_20"
+            android:layout_height="@dimen/dp_20"
+            android:layout_margin="@dimen/dp_20"
+            android:contentDescription="@string/app_name"
+            android:onClick="@{(v)->viewModel.addToWishList(model,true)}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:wishListImage="@{viewModel.isProductWishListed}" />
+
+        <ScrollView
+            android:id="@+id/main"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/dp_10"
+            android:fillViewport="true"
+            android:scrollbars="none"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/wishlistImage">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/mainConstraint"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/productImage"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_0"
+                    android:layout_margin="@dimen/dp_10"
+                    android:contentDescription="@{model.productName}"
+                    app:layout_constraintBottom_toTopOf="@id/guideline"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:productImage="@{model}" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintGuide_percent=".25"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/dp_10"
+                    app:layout_constraintTop_toBottomOf="@id/guideline">
+
+                    <TextView
+                        android:id="@+id/productNameTextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@{model.productName}"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/sp_20"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/priceTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/black"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/productNameTextView"
+                        bind:priceText="@{model}" />
+
+                    <RatingBar
+                        android:id="@+id/productRating"
+                        style="@style/MyRatingBar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp_10"
+                        android:numStars="5"
+                        android:progressTint="@color/green"
+                        android:rating="@{model.reviewInformation.reviewSummary.reviewCount}"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/priceTextView" />
+
+                    <TextView
+                        android:id="@+id/reviewsAvgTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dp_10"
+                        android:textColor="@color/blue"
+                        app:layout_constraintBottom_toBottomOf="@id/productRating"
+                        app:layout_constraintStart_toEndOf="@+id/productRating"
+                        app:layout_constraintTop_toTopOf="@id/productRating"
+                        bind:reviewText="@{model}" />
+
+                    <TextView
+                        android:id="@+id/nextDayDelivery"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/green"
+                        android:layout_marginTop="@dimen/dp_10"
+                        android:visibility="gone"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/reviewsAvgTextView"
+                        bind:nextDayDelivery="@{model}" />
+
+                    <Button
+                        android:id="@+id/addToCart"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp_10"
+                        android:backgroundTint="@color/green"
+                        android:onClick="@{(v)->viewModel.addToCart(model)}"
+                        android:text="@string/in_shopping_cart"
+                        android:textAllCaps="false"
+                        android:textColor="@color/white"
+                        app:layout_constraintTop_toBottomOf="@id/nextDayDelivery" />
+
+                    <TextView
+                        android:id="@+id/availabilityTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp_10"
+                        android:textColor="@color/green"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/addToCart"
+                        bind:availabilityText="@{model}" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </ScrollView>
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/errorView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone"
+            app:lottie_autoPlay="true"
+            app:lottie_fileName="something_went_wrong.json"
+            app:lottie_loop="true"
+            app:lottie_speed="1" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

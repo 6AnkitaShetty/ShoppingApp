@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.shoppingapp.features.home.presentation.home.HomeFragment"
+        android:label="Home">
+        <action
+            android:id="@+id/action_navigation_home_to_productDetailFragment"
+            app:destination="@id/productDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/cartFragment"
+        android:name="com.example.shoppingapp.features.home.presentation.cart.CartFragment"
+        android:label="Cart" />
+    <fragment
+        android:id="@+id/productDetailFragment"
+        android:name="com.example.shoppingapp.features.home.presentation.detail.ProductDetailFragment"
+        android:label="Details">
+        <argument
+            android:name="currentItem"
+            app:argType="com.example.shoppingapp.features.home.data.remote.model.Product" />
+    </fragment>
+    <fragment
+        android:id="@+id/wishListFragment"
+        android:name="com.example.shoppingapp.features.home.presentation.wishlist.WishListFragment"
+        android:label="WishList" />
+</navigation>

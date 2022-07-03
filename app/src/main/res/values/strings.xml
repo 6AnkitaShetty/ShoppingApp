@@ -1,0 +1,32 @@
+<resources>
+    <string name="app_name">ShoppingApp</string>
+    <string name="sign_in">SIGN IN</string>
+    <string name="password">Password</string>
+    <string name="email">Email</string>
+    <string name="invalid_email">Please enter a valid email</string>
+    <string name="invalid_password">Password must be greater than 5 characters</string>
+    <string name="welcome">"Welcome %s !"</string>
+    <string name="no_internet_message">Internet is not available</string>
+    <string name="error_message">Could not load the data… Please try again</string>
+    <string name="title_home">Home</string>
+    <string name="title_wishlist">Wishlist</string>
+    <string name="title_cart">Cart</string>
+    <string name="cart">Cart</string>
+    <string name="availability_status">Available for pickup in %d stores</string>
+    <string name="logout">Logout</string>
+    <string name="reviews_average">%,.2f/10 (%d reviews)</string>
+    <string name="in_shopping_cart">In the shopping cart</string>
+    <string name="product_price">€ %,.2f </string>
+    <string name="next_day_delivery">Delivered tomorrow</string>
+    <string name="review_count"> %d reviews </string>
+    <string name="price_format">€ %,.2f</string>
+    <string name="total_price_format">Total Price : € %,.2f </string>
+    <string name="quantity_format">Quantity: %d </string>
+    <string name="total_quantity_format">Total Quantity : %d </string>
+    <string name="cart_empty">No Items in the cart.</string>
+    <string name="wishlist_empty">No Items in the wishlist.</string>
+    <string name="check_out">Check out</string>
+    <string name="search_product">What are you looking for?</string>
+    <string name="order_success">Your order is placed successfully</string>
+    <string name="go_home_screen">Return to Home</string>
+</resources>
