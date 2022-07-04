@@ -7,7 +7,7 @@ class DeleteCartItemUseCase(
     private val cartRepository: CartRepository
 ) {
 
-    suspend operator fun invoke(cartItem: CartItem){
+    suspend operator fun invoke(cartItem: CartItem) {
         cartRepository.delete(cartItem)
     }
 }

@@ -31,7 +31,7 @@ class WishListViewModel @Inject constructor(
         getWishListItems()
     }
 
-    private fun getWishListItems() {
+    fun getWishListItems() {
         viewModelScope.launch {
             val wishListItems = wishListUseCases.getWishListItemsUseCase.invoke()
             wishListItemsLiveData.postValue(Resource.Success(wishListItems))

@@ -32,8 +32,8 @@ class CartViewModel @Inject constructor(
         getCartItems()
     }
 
-    private fun getCartItems() {
-        viewModelScope.launch {
+    fun getCartItems() {
+        viewModelScope.launch{
             val cartItems = cartUseCases.getCartItemsUseCase.invoke()
             cartItemsLiveData.postValue(Resource.Success(cartItems))
 
@@ -49,14 +49,14 @@ class CartViewModel @Inject constructor(
         }
     }
 
-    private fun fetchCount() {
+    fun fetchCount() {
         viewModelScope.launch {
             val count = cartUseCases.cartItemCountUseCase() ?: 0
             cartCountLiveData.postValue(count)
         }
     }
 
-    private fun fetchTotalCartPrice() {
+    fun fetchTotalCartPrice() {
         viewModelScope.launch {
             val count = cartUseCases.cartItemCountUseCase() ?: 0
             val totalPrice = cartUseCases.cartPriceUseCase()  ?: 0.0

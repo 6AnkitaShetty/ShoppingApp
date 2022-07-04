@@ -27,6 +27,12 @@ class LoginActivity : AppCompatActivity() {
         if (loginViewModel.isLoggedIn) {
             navigateToMainActivity()
         }
+        binding.btnSignIn.setOnClickListener {
+            loginViewModel.login(
+                binding.etEmail.text.toString(),
+                binding.etPassword.text.toString()
+            )
+        }
         setUpObservers()
     }
 

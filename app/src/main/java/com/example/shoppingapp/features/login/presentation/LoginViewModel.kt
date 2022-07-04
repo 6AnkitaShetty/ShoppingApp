@@ -25,8 +25,8 @@ class LoginViewModel @Inject constructor(
     private val loginResultLiveData = MutableLiveData<Resource<Int>>()
     val loginResult: LiveData<Resource<Int>> = loginResultLiveData
 
-    fun login() {
-        val result = loginUseCase.invoke(emailAddress.value ?: "", password.value ?: "")
+    fun login(userName: String, pass: String) {
+        val result = loginUseCase.invoke(emailAddress.value ?: userName, password.value ?: pass)
         loginResultLiveData.postValue(result)
     }
 

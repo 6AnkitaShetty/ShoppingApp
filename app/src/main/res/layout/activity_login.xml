@@ -100,7 +100,6 @@
                     android:background="@drawable/shape_button_rounded"
                     android:foreground="?attr/selectableItemBackground"
                     android:gravity="center"
-                    android:onClick="@{() ->viewModel.login()}"
                     android:paddingTop="@dimen/btn_paddingTopBottom"
                     android:paddingBottom="@dimen/btn_paddingTopBottom"
                     android:text="@string/sign_in"
