@@ -22,7 +22,7 @@ class FetchProductsUseCaseTest {
 
     @get:Rule
     val coroutineRule = MainCoroutineRule()
-    private  var fakeWishListRepository = FakeWishListRepository()
+    private var fakeWishListRepository = FakeWishListRepository()
     private lateinit var fakeProductsRepository: FakeProductsRepository
     private lateinit var fetchProductsUseCase: FetchProductsUseCase
     private val wishListUseCases = WishListUseCases(
@@ -32,10 +32,11 @@ class FetchProductsUseCaseTest {
         GetWishListItemByIdUseCase(fakeWishListRepository),
         DeleteWishListItemUseCase(fakeWishListRepository)
     )
+
     @Before
     fun setUp() {
         fakeProductsRepository = FakeProductsRepository()
-        fetchProductsUseCase = FetchProductsUseCase(fakeProductsRepository,wishListUseCases)
+        fetchProductsUseCase = FetchProductsUseCase(fakeProductsRepository, wishListUseCases)
     }
 
     @Test

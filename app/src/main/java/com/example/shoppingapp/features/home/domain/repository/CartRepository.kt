@@ -7,7 +7,7 @@ interface CartRepository {
 
     suspend fun getCartItemById(id: Int): CartItem?
 
-    suspend fun insertItemToCart(cartItem : CartItem) : Long?
+    suspend fun insertItemToCart(cartItem: CartItem): Long?
 
     suspend fun getCartItemsCount(): Int?
 

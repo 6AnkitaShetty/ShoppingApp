@@ -4,7 +4,7 @@ import com.example.shoppingapp.features.home.data.local.model.CartItem
 import com.example.shoppingapp.features.home.data.remote.model.Product
 import com.example.shoppingapp.features.home.domain.repository.CartRepository
 
-class AddItemToCartUseCase (
+class AddItemToCartUseCase(
     private val cartRepository: CartRepository
 ) {
     suspend operator fun invoke(product: Product): Long? {

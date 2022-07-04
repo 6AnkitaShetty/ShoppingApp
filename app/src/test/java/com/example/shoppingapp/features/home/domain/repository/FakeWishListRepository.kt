@@ -11,19 +11,19 @@ class FakeWishListRepository : WishListRepository {
     }
 
     override suspend fun getWishListById(id: Int): WishListItem? {
-       return wishListItems.firstOrNull { it.productId == id }
+        return wishListItems.firstOrNull { it.productId == id }
     }
 
-    override suspend fun insertItemToWishList(wishListItem: WishListItem): Long? {
+    override suspend fun insertItemToWishList(wishListItem: WishListItem): Long {
         wishListItems.add(wishListItem)
         return 1
     }
 
-    override suspend fun getWishListItemsCount(): Int? {
+    override suspend fun getWishListItemsCount(): Int {
         return wishListItems.size
     }
 
-    override suspend fun getTotalWishListPrice(): Double? {
+    override suspend fun getTotalWishListPrice(): Double {
         return wishListItems.sumOf { it.price ?: 0.0 }
     }
 

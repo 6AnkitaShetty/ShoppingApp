@@ -12,7 +12,6 @@ class WishListAdapter(
     private val listener: OnWishListItemClickListener
 ) : ListAdapter<WishListItem, WishListAdapter.WishListViewHolder>(DiffCallback()) {
 
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): WishListViewHolder {
         val binding =
             ItemWishlistBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -66,7 +65,6 @@ class WishListAdapter(
 
         override fun areContentsTheSame(oldItem: WishListItem, newItem: WishListItem): Boolean =
             oldItem == newItem
-
     }
 
 }

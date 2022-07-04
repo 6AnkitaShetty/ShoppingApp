@@ -5,5 +5,4 @@ import com.example.shoppingapp.util.Resource
 
 interface ProductsRepository {
     suspend fun getProducts(): Resource<List<Product>>
-
 }

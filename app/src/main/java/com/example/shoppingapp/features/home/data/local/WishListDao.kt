@@ -9,10 +9,10 @@ interface WishListDao {
     suspend fun getWishListItems(): List<WishListItem>
 
     @Query("SELECT * FROM WishListItem WHERE productId=:id")
-    suspend fun getWishListItemById(id :Int) : WishListItem?
+    suspend fun getWishListItemById(id: Int): WishListItem?
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertItemToWishList(wishListItem : WishListItem) : Long?
+    suspend fun insertItemToWishList(wishListItem: WishListItem): Long?
 
     @Query("SELECT COUNT(*) FROM WishListItem")
     suspend fun getWishListItemsCount(): Int?

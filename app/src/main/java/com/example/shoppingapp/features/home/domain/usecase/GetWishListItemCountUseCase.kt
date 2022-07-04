@@ -5,7 +5,6 @@ import com.example.shoppingapp.features.home.domain.repository.WishListRepositor
 class GetWishListItemCountUseCase(
     private val wishListRepository: WishListRepository
 ) {
-
     suspend operator fun invoke(): Int? {
         return wishListRepository.getWishListItemsCount()
     }

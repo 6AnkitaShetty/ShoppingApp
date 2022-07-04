@@ -55,8 +55,8 @@ class UseCaseModule {
         wishListUseCases: WishListUseCases
     ): FetchProductsUseCase {
         return FetchProductsUseCase(
-                productsRepository,
-                wishListUseCases
-            )
+            productsRepository,
+            wishListUseCases
+        )
     }
 }

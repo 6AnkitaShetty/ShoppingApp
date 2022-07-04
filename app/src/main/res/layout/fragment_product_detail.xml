@@ -6,7 +6,6 @@
 
     <data>
 
-
         <variable
             name="model"
             type="com.example.shoppingapp.features.home.data.remote.model.Product" />
@@ -119,8 +118,8 @@
                         android:id="@+id/nextDayDelivery"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textColor="@color/green"
                         android:layout_marginTop="@dimen/dp_10"
+                        android:textColor="@color/green"
                         android:visibility="gone"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/reviewsAvgTextView"

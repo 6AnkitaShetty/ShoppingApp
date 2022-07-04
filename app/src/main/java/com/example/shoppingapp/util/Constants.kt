@@ -8,6 +8,6 @@ object Constants {
     const val PREF_NAME = "USER_PREFS"
     const val QUERY = "apple"
     const val PAGE = 1
-    const val DATABASE_NAME="shopping_db"
+    const val DATABASE_NAME = "shopping_db"
     const val BULLET_SYMBOL = "&#8226"
 }

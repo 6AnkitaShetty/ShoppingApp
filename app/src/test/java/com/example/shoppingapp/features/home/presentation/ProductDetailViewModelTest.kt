@@ -64,6 +64,7 @@ class ProductDetailViewModelTest {
             wishListUseCases
         )
     }
+
     @Test
     fun fetchProductDetails_success() {
         coroutineRule.runBlockingTest {

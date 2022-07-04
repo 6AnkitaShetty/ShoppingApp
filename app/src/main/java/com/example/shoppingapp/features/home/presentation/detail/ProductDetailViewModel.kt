@@ -31,7 +31,7 @@ class ProductDetailViewModel @Inject constructor(
     val fetchWishListCount: LiveData<Boolean> = fetchWishListCountLiveData
 
 
-    fun fetchProductDetails(product:Product) {
+    fun fetchProductDetails(product: Product) {
         viewModelScope.launch {
             productDetailLiveData.postValue(Resource.Success(product))
             isProductWishListedLiveData.postValue(product.isWishListed)

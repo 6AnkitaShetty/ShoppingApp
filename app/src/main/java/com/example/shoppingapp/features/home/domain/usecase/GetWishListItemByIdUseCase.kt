@@ -6,7 +6,6 @@ import com.example.shoppingapp.features.home.domain.repository.WishListRepositor
 class GetWishListItemByIdUseCase(
     private val wishListRepository: WishListRepository
 ) {
-
     suspend operator fun invoke(id: Int): WishListItem? {
         return wishListRepository.getWishListById(id)
     }

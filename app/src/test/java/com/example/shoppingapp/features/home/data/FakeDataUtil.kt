@@ -19,7 +19,7 @@ object FakeDataUtil {
         return getFakeCartItems().toList()
     }
 
-    fun getFakeWishListItemsResponse():List<WishListItem> {
+    fun getFakeWishListItemsResponse(): List<WishListItem> {
         return getFakeWishListItems().toList()
     }
 

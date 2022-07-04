@@ -5,8 +5,8 @@ import com.example.shoppingapp.util.Resource
 import androidx.core.util.PatternsCompat
 import com.example.shoppingapp.R
 
-class FakeLoginRepository: LoginRepository {
-    override fun onLoginClicked(username: String, password: String) : Resource<Int> {
+class FakeLoginRepository : LoginRepository {
+    override fun onLoginClicked(username: String, password: String): Resource<Int> {
         return if (!isUserNameValid(username)) {
             Resource.Error(R.string.invalid_email)
         } else if (!isPasswordValid(password)) {
@@ -17,7 +17,7 @@ class FakeLoginRepository: LoginRepository {
     }
 
     private fun isUserNameValid(username: String): Boolean {
-        if(username.contains("@")){
+        if (username.contains("@")) {
             return PatternsCompat.EMAIL_ADDRESS.matcher(username).matches()
         }
         return false

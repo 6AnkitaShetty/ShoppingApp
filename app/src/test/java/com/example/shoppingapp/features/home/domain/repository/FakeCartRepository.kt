@@ -28,10 +28,10 @@ class FakeCartRepository : CartRepository {
     }
 
     override suspend fun delete(cartItem: CartItem) {
-       cartItems.remove(cartItem)
+        cartItems.remove(cartItem)
     }
 
     override suspend fun deleteAll() {
-       cartItems.clear()
+        cartItems.clear()
     }
 }

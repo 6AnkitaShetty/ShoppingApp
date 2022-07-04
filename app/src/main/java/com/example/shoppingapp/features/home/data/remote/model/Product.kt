@@ -16,4 +16,4 @@ data class Product(
     val reviewInformation: ReviewInformation?,
     val salesPriceIncVat: Double?,
     var isWishListed: Boolean = false
-):Serializable
+) : Serializable

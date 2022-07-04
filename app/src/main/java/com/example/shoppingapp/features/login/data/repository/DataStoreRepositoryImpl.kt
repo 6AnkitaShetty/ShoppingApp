@@ -14,9 +14,10 @@ import java.io.IOException
 import javax.inject.Inject
 
 private val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = PREF_NAME)
+
 class DataStoreRepositoryImpl @Inject constructor(
     private val context: Context
-): DataStoreRepository {
+) : DataStoreRepository {
 
     override suspend fun putString(key: String, value: String) {
         val preferencesKey = stringPreferencesKey(key)
@@ -48,7 +49,7 @@ class DataStoreRepositoryImpl @Inject constructor(
             val preferencesKey = booleanPreferencesKey(key)
             val preferences = context.dataStore.data.first()
             preferences[preferencesKey]
-        }catch (e: Exception){
+        } catch (e: Exception) {
             e.printStackTrace()
             null
         }
