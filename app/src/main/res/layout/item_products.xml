@@ -5,6 +5,8 @@
 
     <data>
 
+        <import type="android.view.View" />
+
         <import type="java.util.ArrayList" />
 
         <variable
@@ -20,25 +22,43 @@
         android:padding="@dimen/dp_5"
         android:sendDataToProductDetailFragment="@{model}">
 
-        <ImageView
-            android:id="@+id/productImage"
-            android:layout_width="@dimen/dp_100"
-            android:layout_height="@dimen/dp_150"
-            android:layout_marginTop="@dimen/dp_10"
-            android:contentDescription="@{model.productName}"
-            android:padding="@dimen/dp_5"
+        <FrameLayout
+            android:id="@+id/imageFrame"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:productImage="@{model}" />
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/productImage"
+                android:layout_width="@dimen/dp_100"
+                android:layout_height="@dimen/dp_150"
+                android:layout_marginTop="@dimen/dp_10"
+                android:contentDescription="@{model.productName}"
+                android:padding="@dimen/dp_5"
+                app:productImage="@{model}" />
+
+            <TextView
+                android:id="@+id/coolblueChoice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:background="@drawable/rectangle"
+                android:padding="@dimen/dp_5"
+                android:text="@{model.promoIcon.type}"
+                android:textColor="@color/white"
+                android:visibility="@{model.promoIcon.type!= null ? View.VISIBLE : View.GONE}" />
+        </FrameLayout>
 
         <ImageView
             android:id="@+id/wishlistImage"
-            android:layout_width="@dimen/dp_20"
-            android:layout_height="@dimen/dp_20"
+            android:layout_width="@dimen/dp_30"
+            android:layout_height="@dimen/dp_30"
+            android:layout_margin="@dimen/dp_8"
             android:contentDescription="@{model.productName}"
-            app:layout_constraintBottom_toTopOf="@id/productImage"
-            app:layout_constraintEnd_toEndOf="@id/productImage"
-            app:layout_constraintTop_toTopOf="@id/productImage"
+            android:padding="@dimen/dp_8"
+            app:layout_constraintEnd_toEndOf="@id/imageFrame"
+            app:layout_constraintTop_toTopOf="parent"
             app:wishListImage="@{model.wishListed}" />
 
         <TextView
@@ -52,7 +72,7 @@
             android:textColor="@color/black"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/productImage"
+            app:layout_constraintStart_toEndOf="@+id/imageFrame"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintWidth_percent="0.7" />
 
@@ -68,7 +88,7 @@
             android:paddingVertical="@dimen/dp_5"
             android:progressTint="@color/green"
             android:stepSize="0.4"
-            app:layout_constraintStart_toEndOf="@id/productImage"
+            app:layout_constraintStart_toEndOf="@id/imageFrame"
             app:layout_constraintTop_toBottomOf="@id/productNameTextView"
             bind:rating="@{model}" />
 
@@ -88,7 +108,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/dp_10"
             android:layout_marginTop="@dimen/dp_5"
-            app:layout_constraintStart_toEndOf="@id/productImage"
+            app:layout_constraintStart_toEndOf="@id/imageFrame"
             app:layout_constraintTop_toBottomOf="@id/ratingBar"
             bind:productDescription="@{model}" />
 
@@ -99,7 +119,7 @@
             android:layout_marginStart="@dimen/dp_10"
             android:layout_marginTop="@dimen/dp_5"
             android:textColor="@color/black"
-            app:layout_constraintStart_toEndOf="@id/productImage"
+            app:layout_constraintStart_toEndOf="@id/imageFrame"
             app:layout_constraintTop_toBottomOf="@id/productDescription"
             bind:priceText="@{model}" />
 
@@ -111,7 +131,7 @@
             android:layout_marginTop="@dimen/dp_5"
             android:textColor="@color/green"
             android:visibility="gone"
-            app:layout_constraintStart_toEndOf="@id/productImage"
+            app:layout_constraintStart_toEndOf="@id/imageFrame"
             app:layout_constraintTop_toBottomOf="@id/priceText"
             bind:nextDayDelivery="@{model}" />
 
@@ -121,7 +141,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/dp_10"
             android:layout_marginTop="@dimen/dp_5"
-            app:layout_constraintStart_toEndOf="@id/productImage"
+            app:layout_constraintStart_toEndOf="@id/imageFrame"
             app:layout_constraintTop_toBottomOf="@id/nextDayDelivery"
             bind:availabilityText="@{model}" />
 
