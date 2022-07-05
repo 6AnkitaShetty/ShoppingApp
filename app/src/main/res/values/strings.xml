@@ -29,4 +29,7 @@
     <string name="search_product">What are you looking for?</string>
     <string name="order_success">Your order is placed successfully</string>
     <string name="go_home_screen">Return to Home</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="logout_confirmation_message">Do you want to logout?</string>
 </resources>

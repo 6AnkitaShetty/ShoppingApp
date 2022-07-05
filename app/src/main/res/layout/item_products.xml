@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:bind="http://schemas.android.com/apk/res-auto">
 
@@ -137,10 +138,12 @@
 
         <TextView
             android:id="@+id/availabilityTextView"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/dp_10"
+            android:layout_marginStart="@dimen/dp_8"
             android:layout_marginTop="@dimen/dp_5"
+            android:layout_marginEnd="@dimen/dp_8"
+            app:layout_constraintEnd_toStartOf="@+id/addToCart"
             app:layout_constraintStart_toEndOf="@id/imageFrame"
             app:layout_constraintTop_toBottomOf="@id/nextDayDelivery"
             bind:availabilityText="@{model}" />

@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.*
 import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
+import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
@@ -103,12 +104,23 @@ class HomeFragment : Fragment(), ProductsAdapter.OnClickListener {
 
         homeViewModel.triggerLogOutClick.observe(viewLifecycleOwner) {
             if (it) {
-                val i = Intent(
-                    activity,
-                    LoginActivity::class.java
-                )
-                startActivity(i)
-                activity?.finish()
+                val dialogBuilder = AlertDialog.Builder(activity!!)
+                dialogBuilder.setMessage(it.toString())
+                    .setPositiveButton(R.string.yes) { _, _ ->
+                        val i = Intent(
+                            activity,
+                            LoginActivity::class.java
+                        )
+                        startActivity(i)
+                        activity?.finish()
+                    }
+                    .setNegativeButton(R.string.no){ dialog, _ ->
+                        dialog.dismiss()
+                    }
+                val alert = dialogBuilder.create()
+                alert.setTitle(R.string.logout)
+                alert.setMessage(getString(R.string.logout_confirmation_message))
+                alert.show()
             }
         }
     }

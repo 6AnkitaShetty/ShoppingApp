@@ -56,9 +56,11 @@ class HomeViewModel @Inject constructor(
                     loadingLiveData.postValue(View.GONE)
                     categoryProductsLiveData.postValue(result)
                 } else {
+                    loadingLiveData.postValue(View.GONE)
                     categoryProductsLiveData.postValue(Resource.Error(R.string.no_internet_message))
                 }
             } catch (e: Exception) {
+                loadingLiveData.postValue(View.GONE)
                 categoryProductsLiveData.postValue(Resource.Error(R.string.error_message))
             }
         }

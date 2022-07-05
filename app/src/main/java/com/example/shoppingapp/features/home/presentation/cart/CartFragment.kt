@@ -29,7 +29,6 @@ class CartFragment : Fragment(), CartAdapter.OnCartItemClickListener {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-
         binding = FragmentCartBinding.inflate(inflater, container, false)
         binding.lifecycleOwner = viewLifecycleOwner
         return binding.root
@@ -37,9 +36,7 @@ class CartFragment : Fragment(), CartAdapter.OnCartItemClickListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         binding.viewModel = viewModel
-
         setAdapter()
         setObservers()
     }
@@ -57,7 +54,6 @@ class CartFragment : Fragment(), CartAdapter.OnCartItemClickListener {
                     binding.cartRecycler.visibility = View.GONE
                     binding.itemErrorMessage.tvErrorMessage.visibility = View.VISIBLE
                 }
-                else -> {}
             }
 
         }
